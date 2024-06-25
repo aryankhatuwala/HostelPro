@@ -15,7 +15,7 @@ app.use(cors({
 
 app.get('/', (req, res) => {
   console.log('welcome to hostelPro backend');
-  res.send('Welcome to hostelPro backend'); // Send a response to the client
+  res.send('hostelPro response to Frontend'); // Send a response to the client
 });
 
 app.use(express.json({ extended: false }));
