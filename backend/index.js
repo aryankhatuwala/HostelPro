@@ -9,7 +9,7 @@ connectDB();
 
 app.use(cors(
   {
-    origin: "",
+    origin: "https://hostel-pro.vercel.app/",
     method: ["POST", "GET"],
     credentials: true
   }
