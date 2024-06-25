@@ -1,25 +1,26 @@
-const express = require('express')
-const connectDB = require('./utils/conn')
-const cors = require('cors')
+const express = require('express');
+const connectDB = require('./utils/conn');
+const cors = require('cors');
 
-const app = express()
-const port = 3000
+const app = express();
+const port = 3000;
 
 connectDB();
 
-app.use(cors(
-  {
-    origin: "https://hostel-pro.vercel.app/",
-    method: ["POST", "GET"],
-    credentials: true
-  }
-));
+app.use(cors({
+  origin: "https://hostel-pro.vercel.app",
+  methods: ["POST", "GET"], // Methods should be an array of strings
+  credentials: true
+}));
+
 app.get('/', (req, res) => {
   console.log('welcome to hostelPro backend');
+  res.send('Welcome to hostelPro backend'); // Send a response to the client
 });
 
 app.use(express.json({ extended: false }));
 
+// Define your routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/student', require('./routes/studentRoutes'));
 app.use('/api/admin', require('./routes/adminRoutes'));
@@ -31,5 +32,5 @@ app.use('/api/attendance', require('./routes/attendanceRoutes'));
 app.use('/api/suggestion', require('./routes/suggestionRoutes'));
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Example app listening on port ${port}`);
+});
