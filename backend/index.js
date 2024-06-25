@@ -14,6 +14,9 @@ app.use(cors(
     credentials: true
   }
 ));
+app.get('/', (req, res) => {
+  console.log('welcome to hostelPro backend');
+});
 
 app.use(express.json({ extended: false }));
 
